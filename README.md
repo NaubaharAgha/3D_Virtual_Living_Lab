@@ -9,17 +9,12 @@ The aim of the project is to represent  and to control the environment and the d
 ## Minimum Requirements
 
 1. A computer with Windows Operating System: 
-
-    - Window XP SP3 or above
-
-    - Pentium processor at 1 GHz or higher (Recommended: Dual Core 2 GHz or higher)
-
-    - OpenGL compatible graphics card (Recommended: nVidia GeForce 6 series with 128 MB or greater)
-
-    - 1 GB RAM (Recommended: 2 GB RAM or greater)
-
-    - 400 MB hard drive space
-
+ - Window XP SP3 or above
+ - Pentium processor at 1 GHz or higher (Recommended: Dual Core 2 GHz or higher)
+ - OpenGL compatible graphics card (Recommended: nVidia GeForce 6 series with 128 MB or greater)
+ - 1 GB RAM (Recommended: 2 GB RAM or greater)
+ - 400 MB hard drive space
+ 
 2. Internet Connection
 
 
@@ -31,9 +26,10 @@ For the installation download the executable [.exe](https://owncloud.lst.tfo.upm
 Also If you have Vizard WorldViz program installed in your computer, you can  clone the repository from this [url](https://gitlab.lst.tfo.upm.es/Plan4Act/3D_Virtual_Living_Lab.git) and run CODIGO_TFG_ALBA_GET_Y_SET_VERSION_INGLES.py in Vizard.  
 
 Then you will see the next screen which shows a view of the main door and the IP direction:
-<p align="center">
-  <img src="https://fotos.subefotos.com/8f358e5de887432a5374bfce7953219co.jpg" />
+<p align="left">
+<img src="https://fotos.subefotos.com/8f358e5de887432a5374bfce7953219co.jpg" />
 </p>
+
 
 ## Client and Server communication
 
@@ -45,7 +41,7 @@ The requests to Server may be performed with HTTP GET or POST.
 
 Below in **Table 1** are the different values that the parameter "device" can have and the appliance to which they represent:
 
- ### Table 1 <a id="table1"></a>
+### <a name="table1"></a> Table 1 
 
 | Device                | Device value       |
 | ----------            | ----------         | 
@@ -65,32 +61,39 @@ Below in **Table 1** are the different values that the parameter "device" can ha
 | Control room blind    | RollupSC           |
 | Control room door     | doorSC             |
 
+<br />
 
 
- - GET: In GET requests the parameters are sent in the querystring, these parameters are the comand ("cmd"), the name of the device ("device") and the new state that you want of the device ("state"). Following there are two explamples:
+
+
+
+
+
+
+  - GET: In GET requests the parameters are sent in the querystring, these parameters are the comand ("cmd"), the name of the device ("device") and the new state that you want of the device ("state"). Following there are two explamples:
 
    - Change the device state: It is necessary to indicate that the *cmd* parameter is "set_status", the *device* (One of the device values of the second column of the [Table 1](#table1)), the *device_id* that is always 1 and the new *status* which can be "open" or "close". 
-
-      EG : **"http://192.168.1.12:8080/vizhtml/custom_handler/?cmd=set_status&device_id=1&device=doorHome&state=open"**
+        
+        EG : **"http://192.168.1.12:8080/vizhtml/custom_handler/?cmd=set_status&device_id=1&device=doorHome&state=open"**
 
    - Request for the device state: It is necessary to indicate that the cmd parameter is "get_status" and the device. 
 
-      EG : **"http://192.168.1.12:8080/vizhtml/custom_handler/?cmd=get_status&device_id=1&device=doorHome&state=open"**
+        EG : **"http://192.168.1.12:8080/vizhtml/custom_handler/?cmd=get_status&device_id=1&device=doorHome&state=open"**
 
- - POST: In POST request the parameters are sent in the request body as text, these parameters are only the device which you can change ("device") and the new state ("state") of it, with POST request you can only change the device state.
+  - POST: In POST request the parameters are sent in the request body as text, these parameters are only the device which you can change ("device") and the new state ("state") of it, with POST request you can only change the device state.
 
     EG : **"http://192.168.1.12:8080/vizhtml/custom_handler/"** into the body the format request is **cmd=get_status&device_id=1&device=doorHome&state=open**
 
  When the GET or POST request are made the server response with a JSON object with the parameters:
 
- - version : which is always mercury.
- - cmd : which shows the command (set_status or get_status).
- - code_ : which shows if in the request the enter device is wrong (404), if the enter state is wrong (405) or if the request is correct (201).
- - description : Shows the request error (Change device value or Change state value).
- - device_id : Shows the device identifier which is a number.
- - device_name : Shows the device name.
- - value : Shows the state of the device.
- - status: Shows if the request is correct ("OK") or incorrect ("FAILURE").
+ - *version* : which is always mercury.
+ - *cmd* : which shows the command (set_status or get_status).
+ - *code_* : which shows if in the request the enter device is wrong (404), if the enter state is wrong (405) or if the request is correct (201).
+ - *description* : Shows the request error (Change device value or Change state value).
+ - *device_id* : Shows the device identifier which is a number.
+ - *device_name* : Shows the device name.
+ - *value* : Shows the state of the device.
+ - *status*: Shows if the request is correct ("OK") or incorrect ("FAILURE").
 
 An example of the JSON string:
 ```json
