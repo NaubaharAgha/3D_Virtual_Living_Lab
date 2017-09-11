@@ -146,6 +146,7 @@ See comments into *```CODIGO_TFG_ALBA_GET_Y_SET_VERSION_INGLES.py```* file.
 
 ## Contributors
 
+- Rebeca García Betances (UPM)
 - Eugenio Gaeta (UPM)
 - Alba M. Gallego Montejo (UPM)
 
